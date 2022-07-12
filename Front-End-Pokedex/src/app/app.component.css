@@ -1,0 +1,11 @@
+header{
+    min-height: 9vh;
+}
+
+footer{
+    min-height: 10vh;
+}
+
+main{
+    min-height: 85vh;
+}

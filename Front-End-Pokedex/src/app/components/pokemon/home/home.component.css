@@ -1,0 +1,7 @@
+.container-all-pokemons{
+    width: 100%;
+    padding: 3em 0em;
+    display: flex;
+    justify-content:center ; 
+    align-items: center;   
+}
