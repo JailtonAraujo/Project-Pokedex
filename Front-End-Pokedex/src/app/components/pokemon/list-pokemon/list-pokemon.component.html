@@ -1,6 +1,6 @@
 <form class="search" (submit)="handlerSubmit();">
     <input type="text" placeholder="Buscar por nome" name="name" [(ngModel)]="Search.name">
-    <button>Buscar</button>
+    <button><fa-icon [icon]="faSearch" ></fa-icon></button>
 </form>
 <div class="container-list">
     <ul class="list-pokemons">
@@ -8,5 +8,8 @@
             <app-pokemon-com [pokemon]="element" ></app-pokemon-com>
         </li>          
     </ul>
+</div>
+<div class="LoadMore">
+    <button (click)="LoadMore();" >Carregar Mais...</button>
 </div>
 

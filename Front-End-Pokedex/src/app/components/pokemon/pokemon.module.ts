@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     HttpClientModule,
     FormsModule,
+    FontAwesomeModule
   ],
 
   exports:[

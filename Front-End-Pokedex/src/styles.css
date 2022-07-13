@@ -24,3 +24,9 @@ header{
 footer{
     min-height: 10vh;
 }
+
+button:disabled{
+    background: #aaa;
+    border: 2px solid #aaa;
+    color: #aaa;
+}

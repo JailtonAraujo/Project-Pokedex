@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Pokemon } from 'src/app/Interfaces/Pokemon';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-pokemon-com',
@@ -7,6 +8,8 @@ import { Pokemon } from 'src/app/Interfaces/Pokemon';
   styleUrls: ['./pokemon-com.component.css']
 })
 export class PokemonComComponent implements OnInit {
+
+  farCirclePlus = faCirclePlus;
 
   constructor() { }
 

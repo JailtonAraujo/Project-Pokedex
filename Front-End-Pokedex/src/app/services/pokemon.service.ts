@@ -14,11 +14,23 @@ export class PokemonService {
   constructor(private http:HttpClient) { }
 
   LoadPokemons():Observable<any>{
-         return this.http.get<any>(`${this.BaseApiPokemonUrl}?offset=0&limit=20`);
+
+    return this.http.get<any>(`${this.BaseApiPokemonUrl}?offset=0&limit=20`);
   }
 
   LoadPokemon(urlPokemon:String):Observable<any>{
     return this.http.get<any>(`${urlPokemon}`);
+  }
+
+
+  SearchPokemon(nameSearch:String){
+
+      return this.http.get<any>(`${this.BaseApiPokemonUrl}/${nameSearch}`);
+  
+  }
+
+  LoadMorePokemon(offset:Number):Observable<any>{
+     return this.http.get<any>(`${this.BaseApiPokemonUrl}?offset=${offset}&limit=4`);
   }
 
 }

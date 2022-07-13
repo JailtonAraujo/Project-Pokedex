@@ -42,6 +42,27 @@ h5{
     display: flex;
 }
 
+.card:hover{
+    transform: scale(1.1, 1.1);
+}
+
+button{
+    font-size: 1.7em;
+    width: 100%;
+    margin-top: 0.5em;
+    background:transparent;
+    border: 2px solid #00CED1;
+    color: #00CED1;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: #00CED1;
+    color: #fff;
+}
+
+
 .grass{
     background-color: #9bcc50;
     color: #000;
@@ -77,7 +98,24 @@ h5{
     color:#000;
 }
 
-
-.card:hover{
-    transform: scale(1.1, 1.1);
+.electric{
+    background-color: #eed535;
+    color: #000
 }
+
+.ground{
+    background: linear-gradient(180deg, #f7de3f 50%, #ab9842 50%);
+    color:#000
+}
+
+.fairy{
+    background-color: #fdb9e9;
+    color: #000;
+}
+
+.fighting{
+    background-color: #d56723;
+    color: #fff
+}
+
+

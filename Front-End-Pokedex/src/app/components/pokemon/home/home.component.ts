@@ -11,7 +11,6 @@ export class HomeComponent implements OnInit {
 
   pokemon:Pokemon | null = null;
   pokemons:Pokemon [] = [];
-  NameSearch = "";
 
   constructor(private pokemonService:PokemonService) { }
 
@@ -19,9 +18,11 @@ export class HomeComponent implements OnInit {
     this.loadPokemons();
   }
 
-  loadPokemons(nameSearch?:String){
+  loadPokemons(){
     this.pokemonService.LoadPokemons().subscribe((data) =>{
       
+      this.pokemons=[];
+
       const results:Array<any> = data.results;
 
       results.forEach((element) =>{
@@ -66,7 +67,44 @@ export class HomeComponent implements OnInit {
 
 
     Createsearch(Search:any){
-      this.NameSearch = Search.name;
+
+        if(Search.name == null || Search.name == ''){
+            this.loadPokemons();
+            return
+        }
+
+        this.pokemonService.SearchPokemon(Search.name).subscribe((data) =>{
+
+          this.pokemon = {
+            id:Number(0),
+            name:String(data.name),
+            urlImage:String(this.getUrlImage(data.id)),
+            idPokemon:String(data.id),
+            types:data.types
+          }
+
+          this.pokemons = [];
+          this.pokemons.push(this.pokemon); 
+
+         
+        }, error =>{console.log(error.status)})
+    
     }
 
+    LoadMore(click:any){
+      if(click === true && this.pokemons.length >= 20){
+       let offset:Number = this.pokemons.length
+
+       this.pokemonService.LoadMorePokemon(offset).subscribe((data) =>{
+        
+        const results:Array<any> = data.results;
+
+        results.forEach((element) =>{
+          this.loadPokemonByUrl(element.url);
+        })
+
+       })
+
+      }
+    }
 }
