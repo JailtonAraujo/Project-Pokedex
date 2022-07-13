@@ -11,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   pokemon:Pokemon | null = null;
   pokemons:Pokemon [] = [];
+  NameSearch = "";
 
   constructor(private pokemonService:PokemonService) { }
 
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
     this.loadPokemons();
   }
 
-  loadPokemons(){
+  loadPokemons(nameSearch?:String){
     this.pokemonService.LoadPokemons().subscribe((data) =>{
       
       const results:Array<any> = data.results;
@@ -64,8 +65,8 @@ export class HomeComponent implements OnInit {
     }
 
 
-    search(Search:any){
-      console.log(Search.name);
+    Createsearch(Search:any){
+      this.NameSearch = Search.name;
     }
 
 }
