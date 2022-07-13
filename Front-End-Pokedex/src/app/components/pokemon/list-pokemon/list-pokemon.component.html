@@ -1,3 +1,7 @@
+<form class="search" (submit)="handlerSubmit();">
+    <input type="text" placeholder="Buscar por nome" name="name" [(ngModel)]="Search.name">
+    <button>Buscar</button>
+</form>
 <div class="container-list">
     <ul class="list-pokemons">
         <li *ngFor="let element of AllPokemons"> 

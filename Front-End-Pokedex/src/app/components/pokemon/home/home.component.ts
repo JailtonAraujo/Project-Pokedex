@@ -26,8 +26,6 @@ export class HomeComponent implements OnInit {
       results.forEach((element) =>{
         this.loadPokemonByUrl(element.url);
       })
-
-      //console.log(this.pokemons);
         
       });
 
@@ -46,7 +44,6 @@ export class HomeComponent implements OnInit {
           }
 
           this.pokemons.push(this.pokemon);
-          console.log();
 
         })
     }
@@ -64,6 +61,11 @@ export class HomeComponent implements OnInit {
       }
 
       return `https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${id}.png`;
+    }
+
+
+    search(Search:any){
+      console.log(Search.name);
     }
 
 }

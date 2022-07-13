@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pokemon } from 'src/app/Interfaces/Pokemon';
 
 @Component({
@@ -7,12 +7,21 @@ import { Pokemon } from 'src/app/Interfaces/Pokemon';
   styleUrls: ['./list-pokemon.component.css']
 })
 export class ListPokemonComponent implements OnInit {
-  
-  @Input() AllPokemons:Pokemon [] = [];
 
   constructor() { }
 
+  @Input() AllPokemons:Pokemon [] = [];
+  @Output() onSubmit = new EventEmitter();
+
+   Search = {
+    name:""
+  }
+
   ngOnInit(): void {
+  }
+
+  handlerSubmit(){
+      this.onSubmit.emit(this.Search);
   }
 
 }
