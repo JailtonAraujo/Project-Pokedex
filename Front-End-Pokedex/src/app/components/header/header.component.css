@@ -1,7 +1,7 @@
 .nav-bar{
     display: flex;
     justify-content: space-between;
-    padding: 0.7em 2em;
+    padding: 0.3em 2%;
     border-bottom: 2px solid #000;
 }
 
@@ -16,4 +16,38 @@
 
 .links li {
     margin-left: 1em;
+}
+
+h2{
+    margin: 0px;
+}
+
+li a{
+    border-radius: 5px;
+    padding: .5em 1em;
+    font-size:  clamp(1em, 1em + 1vw, 1em);
+    transition: 0.3s;
+}
+
+
+li:nth-child(2) a{
+    background-color: transparent;
+    color: #DC143C;
+    border: 1px solid #DC143C;
+}
+
+li:nth-child(1) a{
+    background-color: transparent;
+    border: 1px solid #1E90FF;
+    color: #1E90FF;
+}
+
+li:nth-child(2) a:hover{
+    background-color: #DC143C;
+    color: #fff
+}
+
+li:nth-child(1) a:hover{
+    background-color: #1E90FF;
+    color: #fff
 }

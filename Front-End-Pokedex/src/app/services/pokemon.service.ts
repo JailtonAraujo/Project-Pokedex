@@ -14,7 +14,7 @@ export class PokemonService {
   constructor(private http:HttpClient) { }
 
   LoadPokemons():Observable<any>{
-         return this.http.get<any>(`${this.BaseApiPokemonUrl}?offset=0&limit=10`);
+         return this.http.get<any>(`${this.BaseApiPokemonUrl}?offset=0&limit=20`);
   }
 
   LoadPokemon(urlPokemon:String):Observable<any>{

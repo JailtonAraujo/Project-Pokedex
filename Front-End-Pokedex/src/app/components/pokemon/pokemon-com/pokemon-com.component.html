@@ -1,11 +1,14 @@
-<div class="card">
-    <img src="https://assets.pokemon.com/assets/cms2/img/pokedex/detail/001.png" alt="Pokemon">
+<div class="card" *ngIf="pokemon">
+    <img src={{pokemon.urlImage}} alt="Pokemon">
     <div class="poke-info">
-        <p>N°001</p>
-        <h5>Bulbassour</h5>
+        <p>N° {{pokemon.idPokemon}}</p>
+        <h5>{{pokemon.name}}</h5>
+
         <div class="abilities">
-            <span class="Grass">Grass</span>
-            <span class="Poison">Poison</span>
+            <div class="abilite" *ngFor="let ability of pokemon.types">
+                <span class={{ability.type.name}}>{{ability.type.name}}</span>
+            </div>
         </div>
+        
     </div>
 </div>

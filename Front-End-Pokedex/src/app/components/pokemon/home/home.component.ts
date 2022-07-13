@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
         this.loadPokemonByUrl(element.url);
       })
 
-      console.log(this.pokemons);
+      //console.log(this.pokemons);
         
       });
 
@@ -40,10 +40,13 @@ export class HomeComponent implements OnInit {
             id:Number(0),
             name:String(data.name),
             urlImage:String(this.getUrlImage(data.id)),
-            idPokemon:String(data.id)
+            idPokemon:String(data.id),
+            types:data.types
+          
           }
 
           this.pokemons.push(this.pokemon);
+          console.log();
 
         })
     }
