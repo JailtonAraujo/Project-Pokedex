@@ -6,6 +6,7 @@ import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
 import {HttpClientModule} from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { MyPokedexComponent } from './my-pokedex/my-pokedex.component';
 
 
 @NgModule({
@@ -13,6 +14,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     PokemonComComponent,
     HomeComponent,
     ListPokemonComponent,
+    MyPokedexComponent,
   ],
   imports: [
     CommonModule,

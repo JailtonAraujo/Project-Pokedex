@@ -17,6 +17,8 @@ export class ListPokemonComponent implements OnInit {
   @Output() onSubmit = new EventEmitter();
 
   @Output() ClickButtomLoadMore = new EventEmitter(); 
+  @Output() emitPokemon = new EventEmitter<Pokemon>();
+
 
    Search = {
     name:""
@@ -32,6 +34,10 @@ export class ListPokemonComponent implements OnInit {
 
   LoadMore(){
     this.ClickButtomLoadMore.emit(true);
+  }
+
+  handlerSave(pokemon:Pokemon){
+     this.emitPokemon.emit(pokemon);
   }
 
 }

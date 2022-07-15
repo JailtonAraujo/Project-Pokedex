@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pokemon } from 'src/app/Interfaces/Pokemon';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 
@@ -10,13 +10,17 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 export class PokemonComComponent implements OnInit {
 
   farCirclePlus = faCirclePlus;
+  @Output() onSubmit = new EventEmitter<Pokemon>();
 
   constructor() { }
 
   @Input() pokemon:Pokemon | null = null;
 
   ngOnInit(): void {
-    //console.log(this.pokemon?.types)
+  }
+
+  submit(pokemon:Pokemon){
+      this.onSubmit.emit(pokemon);
   }
 
 }

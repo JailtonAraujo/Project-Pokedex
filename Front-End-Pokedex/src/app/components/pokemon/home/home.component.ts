@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
     this.loadPokemons();
   }
 
+  //Busca os pokemons na ApiRestFull da pokedex
   loadPokemons(){
     this.pokemonService.LoadPokemons().subscribe((data) =>{
       
@@ -36,6 +37,7 @@ export class HomeComponent implements OnInit {
 
     }
 
+    //Busca cada pokemon na Api REstFull pela url de pesquisa dele
      loadPokemonByUrl(urlPokemon:String){
        this.pokemonService.LoadPokemon(urlPokemon).subscribe((data)=>{
           
@@ -54,6 +56,7 @@ export class HomeComponent implements OnInit {
         })
     }
 
+    //Junta a url padrão de busca de imagen com o id Do pokemon
     getUrlImage(idPokemon:Number){
 
       let id = "";
@@ -70,6 +73,7 @@ export class HomeComponent implements OnInit {
     }
 
 
+    //Pega o nome de pesquisa informado e faz a busca na APi POkedex
     Createsearch(Search:any){
 
         if(Search.name == null || Search.name == ''){
@@ -99,6 +103,7 @@ export class HomeComponent implements OnInit {
     
     }
 
+    //Função que busca mais 4 pokemons na APi pokedex
     LoadMore(click:any){
       
       if(click === true && this.pokemons.length >= 20){
@@ -115,5 +120,10 @@ export class HomeComponent implements OnInit {
        })
 
       }
+    }
+
+    //Salva pokemon selecionado no Back End (API SPRING)
+    handlerPokemon(pokemon:Pokemon){
+        console.log(pokemon);
     }
 }

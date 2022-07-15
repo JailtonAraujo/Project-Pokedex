@@ -66,7 +66,6 @@
 
 @media (max-width: 820px){
     .list-pokemons{
-       background-color: #483D8B;
        min-width: 0px;
        width: 100%;
     }
