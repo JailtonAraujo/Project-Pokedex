@@ -1,0 +1,33 @@
+.content-about{
+    width: 100%;
+    margin: 1.5em;
+}
+
+h1{
+    font-size: 2em;
+}
+
+h2{
+    font-size: 2.5em;
+    background: -webkit-linear-gradient(#DC143C,#000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h4{
+    font-size: 2em;
+}
+
+.contacts ul {
+    display: flex;
+    padding: 0px;
+}
+
+.contacts ul li{
+    margin-right: 1em;
+}
+
+.reference{
+    font-size: 1.3em;
+    
+}

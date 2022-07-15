@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { Pokemon } from 'src/app/Interfaces/Pokemon';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,9 @@ export class HomeComponent implements OnInit {
   pokemon:Pokemon | null = null;
   pokemons:Pokemon [] = [];
 
-  constructor(private pokemonService:PokemonService) { }
+  constructor(
+    private pokemonService:PokemonService,
+    private messageService:MessageService) { }
 
   ngOnInit(): void {
     this.loadPokemons();
@@ -88,7 +91,11 @@ export class HomeComponent implements OnInit {
           this.pokemons.push(this.pokemon); 
 
          
-        }, error =>{console.log(error.status)})
+        }, error =>{
+            if(error.status === 404){
+                this.messageService.addMessage(`Erro: Nenhum resultado encontrado para ${Search.name}`,"error");
+            }
+        })
     
     }
 

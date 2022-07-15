@@ -1,8 +1,20 @@
 body{
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
     font-family: "Flexo-Demi",arial,sans-serif; 
+}
+
+header{
+    min-height: 9vh;
+}
+
+footer{
+    min-height: 10vh;
+}
+
+main{
+    min-height: 85vh;
 }
 
 li{

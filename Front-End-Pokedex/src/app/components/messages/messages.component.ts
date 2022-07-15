@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { MessageService } from 'src/app/services/message.service';
 
 @Component({
   selector: 'app-messages',
@@ -10,9 +11,10 @@ export class MessagesComponent implements OnInit {
 
   faTimes = faTimes;
 
-  constructor() { }
+  constructor(public messageServive:MessageService) { }
 
   ngOnInit(): void {
+    
   }
 
 }

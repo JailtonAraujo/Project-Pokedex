@@ -2,10 +2,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    background-color: #aaa;
+    color: #000;
     width: 100%;
     z-index: 10;
+}
+
+.message{
+    margin-left: 1em;
 }
 
 button{
@@ -13,4 +16,15 @@ button{
     height: 2em;
     width: 2em;
     margin-right: 1em;
+}
+
+.error{
+    color: #842029;
+    background-color: #f8d7da;
+    border: 1px solid #f5c2c7;;
+}
+
+.success{
+    background-color: #00FA9A;
+    color: #000;
 }
