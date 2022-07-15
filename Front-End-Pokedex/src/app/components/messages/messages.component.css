@@ -1,0 +1,16 @@
+.message-content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: #aaa;
+    width: 100%;
+    z-index: 10;
+}
+
+button{
+    font-size: 1.3em;
+    height: 2em;
+    width: 2em;
+    margin-right: 1em;
+}
