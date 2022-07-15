@@ -7,12 +7,17 @@
     box-shadow: 0 0 2em #000;
     border-radius: 5px;
     background-color: #fff;
+    padding: 0px;
 }
 
 .container-list{
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+li{
+  
 }
 
 .search{

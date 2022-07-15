@@ -33,8 +33,8 @@ export class HomeComponent implements OnInit {
 
     }
 
-    loadPokemonByUrl(urlPokemon:String){
-        this.pokemonService.LoadPokemon(urlPokemon).subscribe((data)=>{
+     loadPokemonByUrl(urlPokemon:String){
+       this.pokemonService.LoadPokemon(urlPokemon).subscribe((data)=>{
           
           this.pokemon = {
             id:Number(0),
@@ -45,6 +45,7 @@ export class HomeComponent implements OnInit {
           
           }
 
+         
           this.pokemons.push(this.pokemon);
 
         })
@@ -92,10 +93,11 @@ export class HomeComponent implements OnInit {
     }
 
     LoadMore(click:any){
+      
       if(click === true && this.pokemons.length >= 20){
        let offset:Number = this.pokemons.length
 
-       this.pokemonService.LoadMorePokemon(offset).subscribe((data) =>{
+        this.pokemonService.LoadMorePokemon(offset).subscribe((data) =>{
         
         const results:Array<any> = data.results;
 
