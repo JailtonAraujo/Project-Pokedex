@@ -31,8 +31,16 @@ export class MyPokedexComponent implements OnInit {
      });
   }
 
-  savePokemon(pokemon:Pokemon){
-    console.log(pokemon);
-  }
+   async handlerDelete(pokemon:Pokemon){
 
+    if(confirm(`Tem certeza que deseja remover ${pokemon.name.toUpperCase()} da sua pokedex?`)){
+
+    await this.pokemonService.deletePokemon(Number(pokemon.id)).subscribe((response)=>{
+
+      this.AllPokemons = this.AllPokemons.filter((iten) => iten.id != pokemon.id);
+
+        this.messageService.addMessage(`${pokemon.name.toUpperCase()} foi removido da sua pokedex`,"success");
+    });
+  }
+}
 }

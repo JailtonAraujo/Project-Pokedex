@@ -21,4 +21,8 @@ export class PokemonBackEndService {
      return this.http.post<Pokemon>(`${this.BaseApiBackEndUrl}/pokemon/`,pokemon); 
   }
 
+  deletePokemon(id:Number){
+    return this.http.delete(`${this.BaseApiBackEndUrl}/pokemon/${id}`);
+  }
+
 }

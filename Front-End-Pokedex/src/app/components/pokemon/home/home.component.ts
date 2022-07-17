@@ -94,15 +94,21 @@ export class HomeComponent implements OnInit {
 
         this.pokemonService.SearchPokemon(Search.name).subscribe((data) =>{
 
+          let types =[];
 
+          for(let i = 1;i <= data.types.length;i++){
+          
+            types.push( {type: data.types[i-1].type.name });
+        }
+          
           this.pokemon = {
             id:Number(0),
             name:String(data.name),
             urlImage:String(this.getUrlImage(data.id)),
             idPokemon:String(data.id),
-            types:data.types
+            types:types
+          
           }
-
 
           this.pokemons = [];
           this.pokemons.push(this.pokemon); 
@@ -136,9 +142,9 @@ export class HomeComponent implements OnInit {
     }
 
     //Salva pokemon selecionado no Back End (API SPRING)
-    handlerPokemon(pokemon:Pokemon){
-       this.pokemonServiceBack.savePokemon(pokemon).subscribe((response)=>{
-          this.messageService.addMessage(`${pokemon.name} Adicionado à sua pokedex com sucesso!`,"success");
+   async handlerPokemon(pokemon:Pokemon){
+      await this.pokemonServiceBack.savePokemon(pokemon).subscribe(()=>{
+          this.messageService.addMessage(`${pokemon.name.toUpperCase()} Adicionado à sua pokedex com sucesso!`,"success");
        });
     }
 }
