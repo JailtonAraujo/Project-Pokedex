@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { Pokemon } from 'src/app/Interfaces/Pokemon';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+
 
 @Component({
   selector: 'app-pokemon-com',
@@ -9,7 +10,7 @@ import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 })
 export class PokemonComComponent implements OnInit {
 
-  farCirclePlus = faCirclePlus;
+  @Input() farCirclePlus!:IconDefinition;
   @Output() onSubmit = new EventEmitter<Pokemon>();
 
   constructor() { }

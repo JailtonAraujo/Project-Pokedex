@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Pokemon } from 'src/app/Interfaces/Pokemon';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, IconDefinition } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-list-pokemon',
@@ -15,6 +15,7 @@ export class ListPokemonComponent implements OnInit {
 
   @Input() AllPokemons:Pokemon [] = [];
   @Output() onSubmit = new EventEmitter();
+  @Input() faCirclePlus!:IconDefinition;
 
   @Output() ClickButtomLoadMore = new EventEmitter(); 
   @Output() emitPokemon = new EventEmitter<Pokemon>();

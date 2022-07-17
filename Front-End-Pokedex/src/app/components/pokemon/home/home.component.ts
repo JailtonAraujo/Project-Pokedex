@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { Pokemon } from 'src/app/Interfaces/Pokemon';
 import { MessageService } from 'src/app/services/message.service';
+import { PokemonBackEndService } from 'src/app/services/pokemon-back-end.service';
+import { faCirclePlus, faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +14,12 @@ export class HomeComponent implements OnInit {
 
   pokemon:Pokemon | null = null;
   pokemons:Pokemon [] = [];
+  faCirclePlus = faCirclePlus
 
   constructor(
     private pokemonService:PokemonService,
-    private messageService:MessageService) { }
+    private messageService:MessageService,
+    private pokemonServiceBack:PokemonBackEndService) { }
 
   ngOnInit(): void {
     this.loadPokemons();
@@ -40,16 +44,23 @@ export class HomeComponent implements OnInit {
     //Busca cada pokemon na Api REstFull pela url de pesquisa dele
      loadPokemonByUrl(urlPokemon:String){
        this.pokemonService.LoadPokemon(urlPokemon).subscribe((data)=>{
+
+        
+        let types =[];
+          
+        for(let i = 1;i <= data.types.length;i++){
+          
+            types.push( {type: data.types[i-1].type.name });
+        }
           
           this.pokemon = {
             id:Number(0),
             name:String(data.name),
             urlImage:String(this.getUrlImage(data.id)),
             idPokemon:String(data.id),
-            types:data.types
+            types:types
           
           }
-
          
           this.pokemons.push(this.pokemon);
 
@@ -83,6 +94,7 @@ export class HomeComponent implements OnInit {
 
         this.pokemonService.SearchPokemon(Search.name).subscribe((data) =>{
 
+
           this.pokemon = {
             id:Number(0),
             name:String(data.name),
@@ -90,6 +102,7 @@ export class HomeComponent implements OnInit {
             idPokemon:String(data.id),
             types:data.types
           }
+
 
           this.pokemons = [];
           this.pokemons.push(this.pokemon); 
@@ -124,6 +137,8 @@ export class HomeComponent implements OnInit {
 
     //Salva pokemon selecionado no Back End (API SPRING)
     handlerPokemon(pokemon:Pokemon){
-        console.log(pokemon);
+       this.pokemonServiceBack.savePokemon(pokemon).subscribe((response)=>{
+          this.messageService.addMessage(`${pokemon.name} Adicionado à sua pokedex com sucesso!`,"success");
+       });
     }
 }

@@ -6,9 +6,10 @@
 
         <div class="abilities">
             <div class="abilite" *ngFor="let ability of pokemon.types">
-                <span class={{ability.type.name}}>{{ability.type.name}}</span>
+                <span class={{ability.type}} >{{ability.type}}</span>
             </div>
         </div>
+        
             <button title="Adicionar a minha pokedex!" (click)="submit(pokemon);"> <fa-icon [icon]="farCirclePlus"></fa-icon> </button>
        
         

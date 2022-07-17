@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Pokemon } from 'src/app/Interfaces/Pokemon';
+import { PokemonBackEndService } from 'src/app/services/pokemon-back-end.service';
+import { MessageService } from 'src/app/services/message.service';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-my-pokedex',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyPokedexComponent implements OnInit {
 
-  constructor() { }
+  faCirclePlus = faTimes;
+
+  constructor(
+    private pokemonService:PokemonBackEndService,
+    private messageService:MessageService) { }
+
+  AllPokemons:Pokemon [] =[];
 
   ngOnInit(): void {
+    this.getAllPokemons();
+  }
+
+  getAllPokemons(){
+     this.pokemonService.getAllPokemons().subscribe((data)=>{
+
+     this.AllPokemons = data;
+
+     });
+  }
+
+  savePokemon(pokemon:Pokemon){
+    console.log(pokemon);
   }
 
 }

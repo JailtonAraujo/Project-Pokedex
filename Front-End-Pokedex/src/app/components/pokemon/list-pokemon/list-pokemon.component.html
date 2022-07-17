@@ -5,7 +5,7 @@
 <div class="container-list">
     <ul class="list-pokemons">
         <li *ngFor="let element of AllPokemons"> 
-            <app-pokemon-com [pokemon]="element" (onSubmit)="handlerSave($event);" ></app-pokemon-com>
+            <app-pokemon-com [pokemon]="element" (onSubmit)="handlerSave($event);" [farCirclePlus]="faCirclePlus" ></app-pokemon-com>
         </li>          
     </ul>
 </div>

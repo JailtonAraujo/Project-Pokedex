@@ -15,7 +15,7 @@ export class MessageService {
     this.StatusClass = StatusClass;
     setTimeout(()=>{
       this.removeMessage();
-    },4000);
+    },1000);
   }
 
   removeMessage(){

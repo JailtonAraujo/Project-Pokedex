@@ -3,6 +3,8 @@ package com.br.controller;
 import java.util.List;
 import java.util.Optional;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,7 +46,7 @@ public class PokemonController {
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<Pokemon> delete(@PathVariable(name = "id") Integer id) {
+	public ResponseEntity<Pokemon> delete(@PathVariable(name = "id") Integer id, HttpServletResponse response) {
 
 		pokemonRepository.deleteById(id);
 
