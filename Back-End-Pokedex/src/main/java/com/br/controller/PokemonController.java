@@ -6,6 +6,8 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.br.model.Pokemon;
@@ -40,9 +43,9 @@ public class PokemonController {
 	}
 
 	@GetMapping("/")
-	public ResponseEntity<List<Pokemon>> getAll() {
+	public ResponseEntity<Page<Pokemon>> getAll() {
 
-		return new ResponseEntity<List<Pokemon>>(pokemonRepository.findAll(Sort.by("idPokemon")), HttpStatus.OK);
+		return new ResponseEntity<Page<Pokemon>>( pokemonRepository.findAll(PageRequest.of(0, 20, Sort.by("idPokemon")) ), HttpStatus.OK);
 
 	}
 
@@ -69,6 +72,13 @@ public class PokemonController {
 
 		return new ResponseEntity<Pokemon>(HttpStatus.NOT_FOUND);
 
+	}
+	
+	@GetMapping("/loadmore/{offset}")
+	public ResponseEntity<Page<Pokemon>> loadMore( @PathVariable(name = "offset") int offset ){
+		
+		return new ResponseEntity<Page<Pokemon>>( pokemonRepository.findAll(PageRequest.of(offset, 4, Sort.by("idPokemon")) ), HttpStatus.OK);
+		
 	}
 
 }

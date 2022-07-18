@@ -14,9 +14,10 @@ export class ListPokemonComponent implements OnInit {
   faSearch = faSearch;
 
   @Input() AllPokemons:Pokemon [] = [];
-  @Output() onSubmit = new EventEmitter();
   @Input() faCirclePlus!:IconDefinition;
+  @Input() classBtnPokemon?:String;
 
+  @Output() onSubmit = new EventEmitter();
   @Output() ClickButtomLoadMore = new EventEmitter(); 
   @Output() emitPokemon = new EventEmitter<Pokemon>();
 

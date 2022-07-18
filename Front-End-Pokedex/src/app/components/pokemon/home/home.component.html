@@ -1,4 +1,4 @@
 <div class="container-all-pokemons">
     <app-list-pokemon [AllPokemons]="pokemons" (ClickButtomLoadMore)="LoadMore($event);"  (onSubmit)="Createsearch($event)" 
-    (emitPokemon)="handlerPokemon($event);" [faCirclePlus]="faCirclePlus"></app-list-pokemon>
+    (emitPokemon)="handlerPokemon($event);" [faCirclePlus]="faCirclePlus" [classBtnPokemon]="'classAdd'"></app-list-pokemon>
 </div>

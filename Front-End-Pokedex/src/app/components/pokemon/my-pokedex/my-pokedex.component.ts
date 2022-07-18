@@ -12,35 +12,65 @@ import { faTimes } from '@fortawesome/free-solid-svg-icons';
 export class MyPokedexComponent implements OnInit {
 
   faCirclePlus = faTimes;
+  totalElements!:Number;
 
   constructor(
-    private pokemonService:PokemonBackEndService,
-    private messageService:MessageService) { }
+    private pokemonService: PokemonBackEndService,
+    private messageService: MessageService) { }
 
-  AllPokemons:Pokemon [] =[];
+  AllPokemons: Pokemon[] = [];
 
   ngOnInit(): void {
     this.getAllPokemons();
   }
 
-  getAllPokemons(){
-     this.pokemonService.getAllPokemons().subscribe((data)=>{
+  getAllPokemons() {
+    this.pokemonService.getAllPokemons().subscribe((data) => {
 
-     this.AllPokemons = data;
+      this.AllPokemons = data.content;
+      this.totalElements = data.totalElements;
 
-     });
-  }
-
-   async handlerDelete(pokemon:Pokemon){
-
-    if(confirm(`Tem certeza que deseja remover ${pokemon.name.toUpperCase()} da sua pokedex?`)){
-
-    await this.pokemonService.deletePokemon(Number(pokemon.id)).subscribe((response)=>{
-
-      this.AllPokemons = this.AllPokemons.filter((iten) => iten.id != pokemon.id);
-
-        this.messageService.addMessage(`${pokemon.name.toUpperCase()} foi removido da sua pokedex`,"success");
     });
   }
-}
+
+  async handlerDelete(pokemon: Pokemon) {
+
+    if (confirm(`Tem certeza que deseja remover ${pokemon.name.toUpperCase()} da sua pokedex?`)) {
+
+      await this.pokemonService.deletePokemon(Number(pokemon.id)).subscribe((response) => {
+
+        this.AllPokemons = this.AllPokemons.filter((iten) => iten.id != pokemon.id);
+
+        this.messageService.addMessage(`${pokemon.name.toUpperCase()} foi removido da sua pokedex`, "success");
+      });
+    }
+  }
+
+  deletePokemon(Search:any){
+    
+    if(Search.name === null || Search.name == ''){
+      this.getAllPokemons();
+      return;
+    }
+
+    this.pokemonService.SearchPokemon(Search.name).subscribe((data) =>{
+      this.AllPokemons = [];
+      this.AllPokemons.push(data);
+    },error=>{
+      this.messageService.addMessage(`Nenhum Resultado encontrado para ${Search.name.toUpperCase()}!`,"error");
+    })
+  }
+
+  LoadMore(click:any){
+
+    if(click === true && this.AllPokemons.length < this.totalElements){
+
+      this.pokemonService.LoadMore(0).subscribe((data) =>{
+        this.AllPokemons = [...this.AllPokemons, ...data.content]
+    })
+    }
+    this.messageService.addMessage("Sem mais resultados...","error");
+    return;
+  }
+
 }

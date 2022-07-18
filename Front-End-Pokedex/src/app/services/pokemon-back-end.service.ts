@@ -13,8 +13,8 @@ export class PokemonBackEndService {
 
   private BaseApiBackEndUrl = environment.BaseAPIBackEndUrl
 
-  getAllPokemons():Observable<Array<Pokemon>>{
-    return this.http.get<Array<Pokemon>>(`${this.BaseApiBackEndUrl}/pokemon/`);
+  getAllPokemons():Observable<any>{
+    return this.http.get<any>(`${this.BaseApiBackEndUrl}/pokemon/`);
   }
 
   savePokemon(pokemon:Pokemon):Observable<Pokemon> {
@@ -23,6 +23,14 @@ export class PokemonBackEndService {
 
   deletePokemon(id:Number){
     return this.http.delete(`${this.BaseApiBackEndUrl}/pokemon/${id}`);
+  }
+
+  SearchPokemon(name:String):Observable<Pokemon>{
+    return this.http.get<Pokemon>(`${this.BaseApiBackEndUrl}/pokemon/fbname/${name}`);
+  }
+
+  LoadMore(Offset:Number):Observable<any>{
+    return this.http.get<any>(`${this.BaseApiBackEndUrl}/pokemon/loadmore/${Offset}`);
   }
 
 }

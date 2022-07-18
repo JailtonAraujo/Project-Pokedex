@@ -12,6 +12,7 @@ export class PokemonComComponent implements OnInit {
 
   @Input() farCirclePlus!:IconDefinition;
   @Output() onSubmit = new EventEmitter<Pokemon>();
+  @Input () classBtnPokemon?:String;
 
   constructor() { }
 
