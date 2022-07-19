@@ -1,4 +1,10 @@
-body{
+*{
+   
+    box-sizing: border-box;
+    font-family: "Flexo-Demi",arial,sans-serif; 
+}
+
+body, html{
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
