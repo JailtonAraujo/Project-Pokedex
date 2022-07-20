@@ -21,6 +21,7 @@ footer{
 
 main{
     min-height: 85vh;
+    background-color: #aaa;;
 }
 
 li{
@@ -43,8 +44,19 @@ footer{
     min-height: 10vh;
 }
 
-button:disabled{
-    background: #aaa;
-    border: 2px solid #aaa;
-    color: #aaa;
+button:disabled, input[type="submit"]:disabled{
+    background-color: transparent;
+    border: 2px solid #000;
+    color: #000;
+}
+
+.error{
+    background-color: #f8d7da;
+    padding: 0.2em 0.2em;
+    border-radius: 5px;
+}
+
+.error span{
+    font-size: 1em;
+    font-weight: 400;
 }
