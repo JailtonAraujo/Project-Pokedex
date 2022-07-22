@@ -7,12 +7,13 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.br.model.Role;
 import com.br.model.Usuario;
 
 @Repository
 @Transactional
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 
-	@Query("select user from Usuario user where user.username = ?1")
+	@Query("select new com.br.model.Usuario(user.id, user.username, user.password) from Usuario user where user.username = ?1")
 	Optional<Usuario> findByUsername(String Username);
 }

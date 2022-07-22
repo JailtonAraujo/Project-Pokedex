@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -22,7 +23,7 @@ public class UsuarioDTO implements Serializable{
 	
 	private String name;
 	
-	private Set<Role> roles;
+	private List<Role> roles;
 	
 	private String token;
 	

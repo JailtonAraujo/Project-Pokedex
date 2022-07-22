@@ -1,7 +1,7 @@
 package com.br.model;
 
 import java.io.Serializable;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -20,20 +20,32 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Usuario implements Serializable{
+public class Usuario implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
-	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
+
 	private String name;
-	
+
 	private String username;
-	
+
 	private String password;
-	
+
 	@ManyToMany(fetch = FetchType.EAGER)
-	private Set<Role> roles;
+	private List<Role> roles;
+
+	@ManyToMany
+	private List<Pokemon> pokemons;
+	
+	public Usuario(Integer id, String username, String password) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+	}
+	
+	
 
 }

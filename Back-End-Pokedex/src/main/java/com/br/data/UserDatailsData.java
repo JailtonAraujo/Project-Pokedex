@@ -34,6 +34,10 @@ public class UserDatailsData implements UserDetails{
 	public String getUsername() {
 		return this.usuario.orElse(new Usuario()).getUsername();
 	}
+	
+	public String getId() {
+		return this.usuario.orElse(new Usuario()).getId().toString();
+	}
 
 	@Override
 	public boolean isAccountNonExpired() {

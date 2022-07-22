@@ -57,7 +57,7 @@ public class JWTValidationFilter extends BasicAuthenticationFilter {
 			return null;
 		}
 		
-		return new UsernamePasswordAuthenticationToken(Username, null, new ArrayList<>()); //Provavelmente vai dar pau quando verivicar pelas credenciais...//
+		return new UsernamePasswordAuthenticationToken(Username, null, new ArrayList<>()); //Provavelmente vai dar pau quando verificar pelas credenciais...//
 		
 	}
 
