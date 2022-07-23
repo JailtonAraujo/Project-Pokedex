@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Front-End-Pokedex';
+
+  btnText? : String;
+
+  ngOnInit(){
+    if(localStorage.getItem('tokenUser') !== ''){
+      this.btnText = "Sair"
+    }else{
+      this.btnText ="Entrar"
+    }
+  }
+
 }

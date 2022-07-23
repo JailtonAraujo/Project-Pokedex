@@ -14,14 +14,14 @@ export class PokemonComComponent implements OnInit {
   @Input() farCirclePlus!:IconDefinition;
   @Output() onSubmit = new EventEmitter<Pokemon>();
   @Input () classBtnPokemon?:String;
-  userLogado!:any;
+  token = '';
 
   constructor() { }
 
   @Input() pokemon:Pokemon | null = null;
 
   ngOnInit(): void {
-    this.userLogado = localStorage.getItem('userLogado');
+    this.token = `${localStorage.getItem('tokenUser')}`
   }
 
   submit(pokemon:Pokemon){

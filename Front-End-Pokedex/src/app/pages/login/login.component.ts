@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MessageService } from 'src/app/services/message.service';
 import { UserService } from 'src/app/services/user.service';
 
@@ -9,7 +10,10 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private userService:UserService, private messageService:MessageService) { }
+  constructor(
+     private userService:UserService,
+     private messageService:MessageService, 
+     private router:Router) { }
 
   login = {username:"", password:""}
 
@@ -21,8 +25,15 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('tokenUser',String(response.token));
       localStorage.setItem('nameUSer', String(response.name));
 
-      console.log(localStorage.getItem('tokenUser'));
+      this.router.navigate(['/mypokedex']);
+      this.messageService.addMessage(`Bem vindo ${response.name}`,'success');
       
+    }, error =>{
+      if(error.status == 403){
+        this.messageService.addMessage(`Nome de Usuario ou senha Incorretos!`,'error');
+      }else if(error.status == 501){
+        this.messageService.addMessage(`Ocorreu um erro inespeardo, por favor tente mais tarde!`,'error');
+      }
     });
   }
 

@@ -22,13 +22,24 @@ h2{
     margin: 0px;
 }
 
-li a{
+li a, button{
     border-radius: 5px;
     padding: .5em 1em;
-    font-size:  clamp(1em, 1em + 1vw, 1em);
+    font-size: 1em;
     transition: 0.3s;
 }
 
+.links button{
+    background-color: transparent;
+    border: 1px solid #483D8B;
+    color: #483D8B;
+    cursor: pointer;
+}
+
+.links button:hover{
+    background-color: #483D8B;
+    color: #fff;
+}
 
 li:nth-child(2) a{
     background-color: transparent;

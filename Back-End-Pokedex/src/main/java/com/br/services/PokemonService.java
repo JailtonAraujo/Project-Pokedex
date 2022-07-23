@@ -24,6 +24,7 @@ public class PokemonService {
 
 	public void savePokemon(Pokemon pokemon, String idUser) {
 
+		//IF O TYPE POKEMON NOT EXISTS IN DATA BASE, SAVE IT AND RETURN AND INSERT THE ID RETURNED IN THE TYPE 
 		if (pokemonRepository.existsByIdPokemon(pokemon.getIdPokemon()) == 0 ) {
 
 			for (int i = 1; i <= pokemon.getTypes().size(); i++) {
@@ -42,10 +43,11 @@ public class PokemonService {
 
 			//IF THE POKEMON NOT EXISTS IN DATA BASE, SAVE POKEMON AND RETURN YOUR DATA AND SAVE IN THE TABLE usuario_pokemons//
 		    pokemonRepository.savePokemon(idUser, pokemonRepository.save(pokemon).getId());
-		}
+		}else {
 		
 		//IF THE POKEMON EXISTS IN DATA BASE, FIND YOUR ID AND SAVE IN THE TABLE usuario_pokemons//
 		pokemonRepository.savePokemon(idUser, pokemonRepository.findByPokemonId(pokemon.getIdPokemon()).getId());
+		}
 		
 	}
 	
