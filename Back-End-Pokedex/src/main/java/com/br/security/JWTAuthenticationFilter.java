@@ -69,7 +69,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 		
 	    Usuario usuario = usuarioRepository.findByUsername(userDatailsData.getUsername()).get();
 	    
-		UsuarioDTO userDTO = new UsuarioDTO().builder().id(usuario.getId()).name(usuario.getName()).roles(usuario.getRoles()).token(token).typeToken("Bearer").build();
+		UsuarioDTO userDTO = new UsuarioDTO().builder().id(usuario.getId()).name(usuario.getName()).roles(usuario.getRoles()).token("Bearer "+token).build();
 	    
 	    response.getWriter().write(new ObjectMapper().writeValueAsString(userDTO));
 	    response.getWriter().flush();

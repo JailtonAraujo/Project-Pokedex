@@ -7,9 +7,9 @@
             <form #formDir="ngForm" (submit)="OnSubmit();">
                 <div class="form-group">
                     <label for="login">Login:</label>
-                    <input type="text" #loginI="ngModel" name="login" id="login" placeholder="Informe seu login..." [(ngModel)]="login.login" required>
+                    <input type="text" #username="ngModel" name="username" id="username" placeholder="Informe seu login..." [(ngModel)]="login.username" required>
             
-                    <div class="error" *ngIf="formDir.submitted && loginI.invalid">
+                    <div class="error" *ngIf="formDir.submitted && username.invalid">
                         <span>Login obrigatorio *</span>
                     </div>
                 </div>

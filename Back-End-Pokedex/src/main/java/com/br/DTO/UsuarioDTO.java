@@ -23,11 +23,9 @@ public class UsuarioDTO implements Serializable{
 	
 	private String name;
 	
-	private List<Role> roles;
-	
 	private String token;
 	
-	private String typeToken;
+	private List<Role> roles;
 	
 
 }

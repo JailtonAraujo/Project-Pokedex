@@ -8,7 +8,7 @@
 
 .content-login{
     min-width: 500px;
-    background-color: aquamarine;
+    background-image: linear-gradient(to left, #00CED1, #00BFFF);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -75,6 +75,10 @@ input[type="submit"]:disabled{
 h3{
     text-align: center;
     margin: 0.6em 0em;
+}
+
+h3 a{
+    color:  #0000CD;
 }
 
 @media (max-width:600px){

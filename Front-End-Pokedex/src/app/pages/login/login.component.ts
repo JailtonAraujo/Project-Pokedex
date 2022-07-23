@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MessageService } from 'src/app/services/message.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -7,15 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private userService:UserService, private messageService:MessageService) { }
 
-  login = {login:"", password:""}
+  login = {username:"", password:""}
 
   ngOnInit(): void {
   }
 
   OnSubmit(){
-    console.log(this.login);
+    this.userService.althentication(this.login).subscribe((response) =>{
+      localStorage.setItem('tokenUser',String(response.token));
+      localStorage.setItem('nameUSer', String(response.name));
+
+      console.log(localStorage.getItem('tokenUser'));
+      
+    });
   }
 
 }
