@@ -5,6 +5,14 @@
     <ul class="links">
         <li> <a class routerLink="/about" >Sobre</a> </li>
         <li> <a routerLink="/mypokedex">My Pokedex</a></li>
-        <li> <button (click)="LogOut();">Sair</button> </li>
+        <li> <button (click)="LogOut();" *ngIf="userLogado">Sair</button> </li>
     </ul>
+    
+    <button class="btnColpsed" (click)="activeMenu();"> <fa-icon [icon]="faBars"></fa-icon> </button>
+    <ul class={{active}}>
+        <li> <a routerLink="/about" >Sobre</a> </li>
+        <li> <a routerLink="/mypokedex">My Pokedex</a></li>
+        <li> <button (click)="LogOut();" *ngIf="userLogado">Sair</button> </li>
+    </ul>
+    
 </nav>

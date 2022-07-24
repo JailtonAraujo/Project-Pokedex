@@ -1,8 +1,11 @@
 .nav-bar{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    align-items: center;
     padding: 0.3em 2%;
     border-bottom: 2px solid #000;
+    background-color: #F0F8FF;
 }
 
 .title{
@@ -41,24 +44,74 @@ li a, button{
     color: #fff;
 }
 
-li:nth-child(2) a{
+.links li:nth-child(2) a{
     background-color: transparent;
     color: #DC143C;
     border: 1px solid #DC143C;
 }
 
-li:nth-child(1) a{
+.links li:nth-child(1) a{
     background-color: transparent;
     border: 1px solid #1E90FF;
     color: #1E90FF;
 }
 
-li:nth-child(2) a:hover{
+.links li:nth-child(2) a:hover{
     background-color: #DC143C;
     color: #fff
 }
 
-li:nth-child(1) a:hover{
+.links li:nth-child(1) a:hover{
     background-color: #1E90FF;
     color: #fff
+}
+
+.btnColpsed{
+    display: none;
+}
+
+.linksResposive{
+    display: none;
+    width: 100%;
+    padding: 0;
+    margin: 0px;
+}
+
+.linksResposive{
+    width: 100%;
+    padding: 0;
+    margin: 0px;
+}
+.linksResposive li{
+    margin-top: 1em;
+}
+
+.linksResposive button{
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.btnColpsed{
+    width: 2.4em;
+    height: 2.4em;
+    font-size: 1.2em;
+    padding: 0em 0.6em;
+    cursor: pointer;
+    border: 1px solid #000;
+    background: transparent;
+}
+
+@media(max-width:820px){
+    .links{
+        display: none;
+    }
+
+    .btnColpsed{
+        display: block;
+    }
+
+    .active-menu{
+        display: block;
+    }
 }

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { Pokemon } from 'src/app/Interfaces/Pokemon';
-import { User } from 'src/app/Interfaces/User';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -14,14 +14,16 @@ export class PokemonComComponent implements OnInit {
   @Input() farCirclePlus!:IconDefinition;
   @Output() onSubmit = new EventEmitter<Pokemon>();
   @Input () classBtnPokemon?:String;
-  token = '';
+  userLogado!:Boolean;
 
-  constructor() { }
+  constructor(private userService:UserService) { }
 
   @Input() pokemon:Pokemon | null = null;
 
   ngOnInit(): void {
-    this.token = `${localStorage.getItem('tokenUser')}`
+    this.userService.getUserLogado().subscribe((logado)=>{
+      this.userLogado = logado
+    })
   }
 
   submit(pokemon:Pokemon){

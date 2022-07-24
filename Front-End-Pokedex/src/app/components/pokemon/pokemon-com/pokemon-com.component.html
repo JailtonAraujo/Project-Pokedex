@@ -10,7 +10,7 @@
             </div>
         </div>
         
-            <button *ngIf="token !== '' " (click)="submit(pokemon);" class={{classBtnPokemon}}> <fa-icon [icon]="farCirclePlus"></fa-icon> </button>
+            <button *ngIf="userLogado" (click)="submit(pokemon);" class={{classBtnPokemon}}> <fa-icon [icon]="farCirclePlus"></fa-icon> </button>
        
         
     </div>

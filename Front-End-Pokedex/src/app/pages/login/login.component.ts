@@ -18,12 +18,14 @@ export class LoginComponent implements OnInit {
   login = {username:"", password:""}
 
   ngOnInit(): void {
+    
   }
 
   OnSubmit(){
     this.userService.althentication(this.login).subscribe((response) =>{
       localStorage.setItem('tokenUser',String(response.token));
       localStorage.setItem('nameUSer', String(response.name));
+      this.userService.changeUserLogado(true);
 
       this.router.navigate(['/mypokedex']);
       this.messageService.addMessage(`Bem vindo ${response.name}`,'success');
