@@ -37,8 +37,8 @@ public class Usuario implements Serializable {
 	@ManyToMany(fetch = FetchType.EAGER)
 	private List<Role> roles;
 
-	@ManyToMany
-	private List<Pokemon> pokemons;
+//	@ManyToMany
+//	private List<Pokemon> pokemons;
 	
 	public Usuario(Integer id, String username, String password) {
 		this.id = id;

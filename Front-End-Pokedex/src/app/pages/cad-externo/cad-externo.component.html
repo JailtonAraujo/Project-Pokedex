@@ -1,0 +1,55 @@
+<div class="container">
+<div class="content-cad">
+    <div class="title">
+        <h3>Cadastre-se</h3>
+    </div>
+    <form (submit)="Submit()" [formGroup]="formUser" #formDir="ngForm">
+
+        <div class="form-group">
+            <label for="name">Nome:</label>
+            <input type="text" placeholder="Insira seu nome" formControlName="name" required>
+
+            <div class="error" *ngIf="name.invalid && formDir.submitted">
+                <span *ngIf="name.errors?.['required']">
+                    *Campo obrigatorio!
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="username">Login:</label>
+            <input type="text" placeholder="Insira seu nome de usuario" formControlName="username" required>
+
+            <div class="error" *ngIf="username.invalid && formDir.submitted">
+                <span *ngIf="username.errors?.['required']">
+                    *Campo obrigatorio!
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Senha:</label>
+            <input type="password" placeholder="Insira sua senha" formControlName="password" required>
+
+            <div class="error" *ngIf="password.invalid && formDir.submitted">
+                <span *ngIf="password.errors?.['required']">
+                    *Campo obrigatorio!
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="password-confirm">Confirme a senha:</label>
+            <input type="password" placeholder="Insira sua senha novamente" formControlName="passwordConfirm" required>
+
+            <div class="error" *ngIf="passwordConfirm.invalid && formDir.submitted">
+                <span *ngIf="passwordConfirm.errors?.['required']">
+                    *Campo obrigatorio!
+                </span>
+            </div>
+        </div>
+
+        <input type="submit" value="Cadastrar">
+    </form>
+</div>
+</div>

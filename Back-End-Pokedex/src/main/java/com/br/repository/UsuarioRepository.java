@@ -14,6 +14,6 @@ import com.br.model.Usuario;
 @Transactional
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 
-	@Query("select new com.br.model.Usuario(user.id, user.username, user.password) from Usuario user where user.username = ?1")
+	@Query("select user from Usuario user where user.username = ?1")
 	Optional<Usuario> findByUsername(String Username);
 }

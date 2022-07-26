@@ -14,6 +14,7 @@ export class HeaderComponent implements OnInit {
   active = 'linksResposive';
   activated = false;
   userLogado!:Boolean;
+  userLogadoName = localStorage.getItem('nameUSer');
 
   constructor(private router:Router, private userService:UserService) {
     

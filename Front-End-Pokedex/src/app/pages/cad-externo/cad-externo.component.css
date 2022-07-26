@@ -1,0 +1,32 @@
+.content-cad{
+    width: 820px;
+    box-shadow: 0 0 2em #000;
+    background-image: linear-gradient(to left, #00CED1, #00BFFF);
+    border-radius: 5px;
+    padding: 1em;
+}
+
+.title{
+    margin-top: 0px;
+    border-left: 4px solid #000;
+}
+
+.title h3{
+    margin-left: 0.4em;
+}
+
+input[type="submit"]{
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border: 1px solid #008000;
+    font-weight: bold;
+    border-radius: 5px;
+    color: #008000;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    background-color: #008000;
+    color: #fff;
+}

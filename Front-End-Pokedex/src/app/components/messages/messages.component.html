@@ -1,7 +1,9 @@
-<div class="message-content {{messageServive.StatusClass}}" *ngIf="messageServive.message">
+<div class="container-message" *ngIf="messageServive.message">
+<div class="message-content error {{messageServive.StatusClass}}" >
 <div class="message">
     <h3>Messagem do sistema:</h3>
     <p>{{messageServive.message}}</p>
 </div>
 <button (click)="messageServive.removeMessage();"> <fa-icon [icon]="faTimes"></fa-icon> </button>
+</div>
 </div>

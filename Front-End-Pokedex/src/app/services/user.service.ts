@@ -29,4 +29,8 @@ export class UserService {
     return this.Userlogado;
   }
 
+  saveUser(Usuario:any):Observable<any>{
+    return this.http.post<any>(`${this.BaseAPIBackEndUrl}/user/`, Usuario);
+  }
+
 }

@@ -12,6 +12,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { MessagesComponent } from './components/messages/messages.component';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CadExternoComponent } from './pages/cad-externo/cad-externo.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoginComponent,
     AboutComponent,
     MessagesComponent,
+    CadExternoComponent,
   ],
   imports: [
     BrowserModule,
