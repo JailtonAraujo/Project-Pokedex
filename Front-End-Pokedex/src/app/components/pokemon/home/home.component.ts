@@ -145,6 +145,10 @@ export class HomeComponent implements OnInit {
    async handlerPokemon(pokemon:Pokemon){
       await this.pokemonServiceBack.savePokemon(pokemon).subscribe(()=>{
           this.messageService.addMessage(`${pokemon.name.toUpperCase()} Adicionado à sua pokedex com sucesso!`,"success");
+       },error =>{
+        if(error.status === 400){
+          this.messageService.addMessage(`${pokemon.name.toLocaleUpperCase()} já existe na sua pokedex!`,"error");
+        }
        });
     }
 }

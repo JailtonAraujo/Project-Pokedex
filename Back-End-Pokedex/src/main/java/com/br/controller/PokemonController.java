@@ -33,7 +33,12 @@ public class PokemonController {
 	@PostMapping(value = "/")
 	public ResponseEntity<Pokemon> save(@RequestBody Pokemon pokemon, @AuthenticationPrincipal String idUser) {
 
-		pokemonService.savePokemon(pokemon, idUser);
+		try {
+			pokemonService.savePokemon(pokemon, idUser);
+		} catch (Exception e) {
+			return new ResponseEntity<Pokemon>(HttpStatus.BAD_REQUEST);
+		}
+		
 
 		return new ResponseEntity<Pokemon>(HttpStatus.CREATED);
 	}
