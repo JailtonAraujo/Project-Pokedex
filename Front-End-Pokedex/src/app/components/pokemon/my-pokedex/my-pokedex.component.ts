@@ -46,7 +46,7 @@ export class MyPokedexComponent implements OnInit {
     }
   }
 
-  deletePokemon(Search:any){
+  SearchPokemon(Search:any){
     
     if(Search.name === null || Search.name == ''){
       this.getAllPokemons();
@@ -63,14 +63,17 @@ export class MyPokedexComponent implements OnInit {
 
   LoadMore(click:any){
 
-    if(click === true && this.AllPokemons.length < this.totalElements){
+    
 
-      this.pokemonService.LoadMore(0).subscribe((data) =>{
-        this.AllPokemons = [...this.AllPokemons, ...data.content]
+    if(this.AllPokemons.length < this.totalElements){
+
+      this.pokemonService.LoadMore(this.AllPokemons.length).subscribe((data) =>{
+        this.AllPokemons = [...this.AllPokemons, ...data]
     })
-    }
-    this.messageService.addMessage("Sem mais resultados...","error");
+    }else{
+      this.messageService.addMessage("Sem mais resultados...","error");
     return;
+    }
   }
 
 }

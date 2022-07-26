@@ -43,7 +43,7 @@ h5{
 }
 
 .card:hover{
-    transform: scale(1.1, 1.1);
+    transform: scale(1.05, 1.05);
 }
 
 .classAdd{
@@ -134,5 +134,34 @@ h5{
     color: #fff
 }
 
+.ice{
+    background-color: #51c4e7;
+    color: #000;
+}
+
+.dark{
+    background-color: #707070;
+    color: #fff;
+}
+
+.psychic{
+    background-color: #f366b9;
+    color: #fff;
+}
+
+.ghost{
+    background-color: #7b62a3;
+    color: #fff;
+}
+
+.steel{
+    background-color: #9eb7b8;
+    color: #000;
+}
+
+.rock{
+    background-color: #a38c21;
+    color: #fff;
+}
 
 
